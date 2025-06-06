@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  background: linear-gradient(to right, #01483b, #374aa0, #8129ac);
+}
+
+.dashboardcontainer {
+  background: linear-gradient(to right, #01483b, #374aa0, #8129ac);
+  min-height: 91vh;
+}
+/* styles.css */
+.card:hover {
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+.dashprofile{
+  height: 150px;
+    width: 200px;
+    border-radius: 6px;
+    margin: 12px auto;
+}
+.car-key {
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.car-value {
+  font-family: 'Courier New', monospace;
+  color: #000000;
+}

@@ -1,0 +1,146 @@
+
+.my-cars-container {
+  background: linear-gradient(to right, #01483b, #374aa0, #8129ac);
+  min-height: 91vh;
+  padding: 20px 0;
+}
+
+.searchcar-card {
+  width: 780px;
+  background-color: white;
+  box-shadow: 1px 1px 15px 7px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  margin: 20px auto;
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+  align-items: center;
+}
+
+.car-image {
+  flex-shrink: 0;
+}
+
+.car-thumbnail {
+  height: 180px;
+  width: 210px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.car-details {
+  flex-grow: 1;
+}
+
+.car-title {
+  cursor: pointer;
+  color: #108ee9;
+  margin: 0;
+}
+
+.car-title:hover {
+  text-decoration: underline;
+}
+
+.car-actions {
+  float: right;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+hr {
+  margin: 10px 0;
+}
+
+.search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: linear-gradient(to right, #027762, #3b52bb, #8727b7);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.search-field {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+   font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.select-wrapper {
+  position: relative; 
+}
+
+.select-input {
+   padding: 10px;
+  border: 1px solid #fcfdfe;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: #cee8fb;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.select-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #dc3545; 
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1;
+  display: none; 
+}
+
+.select-input:valid + .clear-btn {
+  display: block; 
+}
+
+.search-button {
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #0056b3; 
+}
+
+.car-key {
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.car-value {
+  font-family: 'Courier New', monospace;
+  color: #000000;
+}

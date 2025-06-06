@@ -1,0 +1,226 @@
+/* .headerStyle{
+    background-color: #0d4b89;
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 20px;
+}
+
+.titleStyle{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.linkStyle{
+    color: white;
+    font-size: 16px;
+    margin-right: 15px;
+    background-color: rgb(1,1,101);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-decoration: none;
+} */
+
+
+/* New css file -  */
+
+/* .navbar {
+    background-color: #f8f9fa;
+    padding: 0.90rem 2rem;
+    border-bottom: 1px solid #ddd;
+    background-color: rgb(150, 160, 237);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-left {
+  font-size: 1.95rem;
+  font-weight: bold;
+  color: #2c3575;;
+  text-decoration: none;
+}
+.navbar-left .brand {
+font-size: 1.5rem;
+font-weight: bold;
+color: #2c3575;;
+text-decoration: none;
+}
+
+.navbar-right {
+display: flex;
+align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+color: #12324f;
+text-decoration: none;
+font-weight: 500;
+}
+
+.nav-link.active {
+border-bottom: 2px solid #007bff;
+}
+
+.menu-toggle {
+display: none;
+}
+
+.big-bold-icon {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000; 
+}
+
+.Symbol{
+  
+  font-size: 20px;
+}
+.SymbolDash{
+  font-size: 22px;
+} */
+
+.custom-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(to right, #013128, #18286c, #561577);
+  padding: 0.6rem 1.5rem;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left, .nav-center, .nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-center {
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.icon-link {
+  color: white;
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+.app-name {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #f1f1f1;
+}
+
+.navbar-link {
+  margin-left: 1rem;
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  padding: 7px;
+}
+
+.username{
+  color: #90e0d2;
+}
+
+.nav-link{
+  margin-left: 0.8rem;
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffc107;
+}
+.SymbolDash{
+  font-size: 22px;
+}
+
+.Symbol{
+  color: #fc3730;
+  padding: 5px;
+}
+
+.dropdownSymbol{
+  color: black;
+}
+
+/* Drop-down css */
+
+.menu-container {
+  position: relative;
+  display: inline-block;
+  font-family: 'Segoe UI', sans-serif;
+  cursor: pointer;
+  padding: 6px;
+}
+.bar {
+  height: 4px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 4px;
+  transition: all 0.4s ease;
+}
+
+.hamburger.open .bar:nth-child(1) {
+  transform: rotate(45deg) translateY(10px);
+}
+.hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translateY(-10px);
+}
+
+.dropdown {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  min-width: 160px;
+  z-index: 999;
+}
+
+.dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown a {
+  display: block;
+  padding: 12px 20px;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.2s ease;
+  font-size: 16px;
+}
+
+.dropdown a:hover {
+  background-color: #6380ca;
+}
+

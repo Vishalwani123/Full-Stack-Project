@@ -1,0 +1,164 @@
+.custdbcontainer {
+  background: linear-gradient(to right, #01483b, #374aa0, #8129ac);
+  min-height: 91vh;
+}
+.child {
+  padding: 20px;
+  width: 780px;
+  background-color: white;
+  box-shadow: 1px 1px 15px 7px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.child:hover{
+  transform: translate3d(0.1px, -0.1px, 0.1px) rotateX(1deg) rotateY(1deg) scale(1.015);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.row {
+  padding: 30px;
+  width: 780px;
+  background-color: white;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+i {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+tr {
+  padding: 5px;
+  margin-bottom: 0px;
+}
+
+p {
+  margin-bottom: 0em;
+}
+
+hr {
+  /* margin-top: 10px;
+  margin-bottom: 10px; */
+  margin: 5px auto;
+}
+
+h2:hover {
+  text-decoration-line: underline;
+}
+
+.pagination {
+  width: 780px;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20px;
+  margin-top: 20px;
+}
+
+.profile{
+    height: 150px;
+    width: 200px;
+    border-radius: 6px;
+    margin: 12px auto;
+}
+
+.custCard{
+
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  padding: 12px 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  gap: 16px;
+  max-width: 780px;
+  margin: 20px auto;
+  background: linear-gradient(to right, #2f7d6e, #5666b0, #9d5dbd);
+  border: none; */
+
+  margin: 15px auto;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+  /* overflow: hidden; */
+  padding: 10px;
+}
+
+.cust-data-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Adds space between the cards */
+  flex-wrap: wrap;
+}
+
+.custDataCard{
+   /* flex: 1;
+  min-width: 180px;
+  text-align: center;
+  padding: 16px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  margin: auto 80px; */
+
+    /* width: 50%;
+  text-align: center;
+  padding: 24px;
+  transition: transform 0.3s ease;
+  border-right: 1px solid #f0f0f0; */
+
+  flex: 1 1 200px;
+  max-width: 250px;
+  text-align: center;
+  padding: 2px;
+  transition: transform 0.3s ease;
+  border: none !important; /* Remove Ant Design's default border */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  background-color: #f8f9fa;
+
+}
+
+.custDataCard h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #666;
+}
+
+.custDataCard h1 {
+  margin: 10px 0 0;
+  font-size: 32px;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.custDataCard:hover {
+  transform: scale(1.03);
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.car-key {
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.car-value {
+  font-family: 'Courier New', monospace;
+  color: #000000;
+}
