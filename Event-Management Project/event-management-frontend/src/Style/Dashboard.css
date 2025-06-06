@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  background: linear-gradient(to right, #76ecd6, #94a3e9, #C471ED);
+}
+
+.dashboard-container {
+  max-width: 1350px;
+  margin: 6rem auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  padding: 0rem 1rem;
+  
+}
+
+h2 {
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+/* Slider styles */
+.slick-slide {
+  margin: 0 10px; /* Space between slides */
+}
+
+.slick-prev, .slick-next {
+  z-index: 1; /* Ensure navigation buttons are above the slides */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .dashboard-container {
+      margin: 1rem;
+  }
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  scroll-behavior: smooth;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Chrome, Safari */
+}
+
+.event-card {
+  flex: 0 0 auto; /* Prevent shrinking */
+  width: 300px;
+  scroll-snap-align: start;
+  border: 1px solid #ccc;
+  padding: 0px;
+  margin: 1px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-left: auto;
+  margin-right: auto;
+}

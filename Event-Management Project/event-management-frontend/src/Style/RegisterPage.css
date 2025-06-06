@@ -1,0 +1,128 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #76ecd6, #94a3e9, #C471ED);
+    font-family: sans-serif;
+  }
+  
+  /* Form Container Styles */
+  .form-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    margin-top: -8rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  /* Heading Styles */
+  .heading {
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Input Group Styles */
+  .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .input-label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    display: block;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    box-sizing: border-box;
+  }
+  
+  /* Forgot Password Styles */
+  .forgot-password {
+    text-align: right;
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  
+  /* Submit Button Styles */
+  .submit-button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 24px;
+    background: linear-gradient(to right, #58f3d6, #7084e2);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 11px;
+  }
+  
+  /* Error and Success Message Styles */
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  .success-message {
+    color: green;
+    margin-top: 10px;
+  }
+  
+  /* Signup Text Styles */
+  .signup-text {
+    margin: 20px 10px;
+    color: #8889da;
+  }
+  
+  /* Social Button Styles */
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  /* SelectStyles.css */
+
+.input-group {
+    margin: 1rem 0;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .input-group select {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #fff;
+    color: #333;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2210%22%20height%3D%227%22%20viewBox%3D%220%200%2010%207%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M0%200l5%207%205-7z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 12px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .input-group select:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+    outline: none;
+  }
+  

@@ -1,0 +1,63 @@
+.navbar {
+background-color: #f8f9fa;
+padding: 0.90rem 2rem;
+border-bottom: 1px solid #ddd;
+background-color: rgb(150, 160, 237);
+}
+
+.navbar-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.navbar-left {
+  font-size: 1.95rem;
+  font-weight: bold;
+  color: #2c3575;;
+  text-decoration: none;
+}
+.navbar-left .brand {
+font-size: 1.5rem;
+font-weight: bold;
+color: #2c3575;;
+text-decoration: none;
+}
+
+.navbar-right {
+display: flex;
+align-items: center;
+}
+
+.nav-links {
+display: flex;
+gap: 1rem;
+}
+
+.nav-link {
+color: #12324f;
+text-decoration: none;
+font-weight: 500;
+}
+
+.nav-link.active {
+border-bottom: 2px solid #007bff;
+}
+
+.menu-toggle {
+display: none;
+}
+
+.big-bold-icon {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000; /* optional */
+}
+
+.Symbol{
+  
+  font-size: 20px;
+}
+.SymbolDash{
+  font-size: 22px;
+}

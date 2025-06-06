@@ -1,0 +1,61 @@
+.qr-code-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+.qr-code-container h2 {
+  margin-bottom: 30px;
+  color: #333;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.qr-code-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.qr-code-item {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  width: 180px;
+}
+
+.qr-code-item:hover {
+  transform: scale(1.05);
+}
+
+.qr-code-canvas {
+  border-radius: 12px;
+}
+
+.qr-code-value {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  word-break: break-word;
+  color: #555;
+  font-weight: 600;
+}
+
+.qr-code-title {
+  font-size: 24px; /* Larger font size for the title */
+  font-weight: bold; /* Bold text */
+  color: #2a2a72; /* Dark color for the title */
+  text-align: center; /* Center the title */
+  margin-bottom: 20px; /* Space below the title */
+  border-bottom: 2px solid #2a2a72; /* Underline effect */
+  padding-bottom: 10px; /* Space below the underline */
+}

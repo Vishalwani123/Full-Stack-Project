@@ -1,0 +1,145 @@
+/* EventCard.css */
+
+.event-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.event-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.event-content {
+  padding: 16px 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.event-title {
+  font-size: 1.4rem;
+  margin: 0 0 8px 0;
+  color: #222;
+  font-weight: 700;
+}
+
+.event-description {
+  font-size: 1rem;
+  margin: 0 0 12px 0;
+  color: #555;
+  flex-grow: 1;
+}
+
+.event-info {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 4px 0;
+}
+
+.view-button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: auto;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+}
+
+.view-button:hover {
+  background-color: #0056b3;
+}
+
+.event-detail {
+  background-color: #ffffff; /* White background for the card */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 380px; /* Maximum width of the card */
+  transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.event-detail:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+.event-detail h1 {
+  font-size: 24px; /* Font size for the title */
+  margin-bottom: 5px; /* Space below the title */
+  color: #333; /* Dark color for the title */
+  text-align: center;
+  padding-top: 10px;
+}
+
+.event-detail img {
+  width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 4px; /* Slightly round the image corners */
+}
+
+.event-detail p {
+  font-size: 16px; /* Font size for paragraphs */
+  color: #555; /* Gray color for text */
+  margin: 5px; /* Space below paragraphs */
+  text-align: center;
+}
+
+.event-detail strong {
+  color: #333; /* Dark color for strong text */
+}
+
+.button-container {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center the buttons horizontally */
+  margin-top: 20px; /* Space above the button container */
+}
+
+.event-detail button {
+  color: white; /* Text color for buttons */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners for buttons */
+  padding: 10px 15px; /* Padding inside buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  margin: 0 10px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+}
+
+.event-detail .updateEvent{
+  background-color: #007bff; /* Primary button color */
+}
+
+.event-detail .deleteEvent{
+  background-color: #ef020e; /* Primary button color */
+}
+.event-detail .updateEvent:hover{
+  background-color: #03468e; /* Darker shade on hover */
+}
+
+.event-detail .deleteEvent:hover{
+  background-color: #7f1502; /* Darker shade on hover */
+}
