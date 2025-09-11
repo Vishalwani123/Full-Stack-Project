@@ -4,13 +4,17 @@ export const getAllEvents = async () => {
  
     const res = await axios.get('/api/events/getall');
     return res.data;
-  
-  
-  
+
 };
 
 export const getEventById = async (id) => {
-  const res = await axios.get(`/api/events/get/${id}`);
+  const res = await axios.get(`/api/events/get/eventId/${id}`);
+  return res.data;
+};
+
+export const getEventsByuserId = async (userId) => {
+  console.log("Inside call part of userId");
+  const res = await axios.get(`/api/events/get/userId/${userId}`);
   return res.data;
 };
 

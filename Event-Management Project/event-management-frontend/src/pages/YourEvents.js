@@ -1,29 +1,30 @@
 import { useEffect, useState } from 'react';
-import { getAllEvents } from '../services/eventService';
-import { useNavigate } from 'react-router-dom';
+import { getEventsByuserId } from '../services/eventService';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import EventCard from '../components/EventCard';
 import 'slick-carousel/slick/slick.css'; 
 import 'slick-carousel/slick/slick-theme.css'; 
 import '../Style/Dashboard.css';
 
-function Dashboard() {
+function YourEvents() {
+  const { userId } = useParams();
   const [events, setEvents] = useState([]);
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      setIsAuthenticated(true);
-    }
-    getAllEvents().then(setEvents);
-  }, []);
+ useEffect(() => {
+     const token = localStorage.getItem('token');
+     if (token) {
+       setIsAuthenticated(true);
+     }
+     getEventsByuserId(userId).then(setEvents);
+   }, [userId]);
 
   const handleView = (id) => {
     if (isAuthenticated) {
-      navigate(`/event/${id}/null`); 
+      navigate(`/event/${id}/${userId}`); 
     } else {
       toast.success(`Login to continue`, {autoClose: 800,});
       setTimeout(() => navigate('/login'), 100);
@@ -41,4 +42,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default YourEvents;

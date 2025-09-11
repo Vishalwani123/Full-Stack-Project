@@ -6,25 +6,18 @@ import '../style/Navbar.css';
 
 function Navbar() {
   // const [menuOpen, setMenuOpen] = useState(false);
-   const [user, setUser] = useState(null);
-   const [isAuthenticated , setIsAuthenticated ] = useState(false);
-   const [open , setOpen ] = useState(false);
-   const [username, setUsername] = useState(null);
-   const location = useLocation();
-  // const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
-  // const [isCustomerLoggedIn, setIsCustomerLoggedIn] = useState(false);
-  // const [customerName, setCustomerName] = useState('Customer');
-  // const [showNavbar, setShowNavbar] = useState(true);
-
-  // const location = useLocation();
+  const [user, setUser] = useState(null);
+  const [isAuthenticated , setIsAuthenticated ] = useState(false);
+  const [open , setOpen ] = useState(false);
+  const [username, setUsername] = useState(null);
+  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     const userName = localStorage.getItem('userName');
-    console.log("UserName of user is ------"+ userName);
     setUsername(userName);
-    console.log("Token is ------ "+token);
+
     if(token){
       const userId = localStorage.getItem('userId');
       setUser(JSON.parse(userId));
@@ -33,19 +26,8 @@ function Navbar() {
     else{
       setUser(null);
     }
-   
+    
   }, [location]);
-
-  
-
-
-  //  const logout = () => {
-  //   NavbarService.signout();
-  //   setIsAdminLoggedIn(false);
-  //   setIsCustomerLoggedIn(false);
-  //   setCustomerName('Customer');
-  //   navigate('/login');
-  // };
 
   const isActive = (path) => location.pathname === path;
 
@@ -55,13 +37,12 @@ function Navbar() {
       localStorage.removeItem('token');
       localStorage.removeItem('userId');
       setUser(null);
-      // window.location.href = "/";
       navigate('/')
     }
   };
 
   const handleLinkClick = () => {
-    setOpen(false); // Close dropdown when a link is clicked
+    setOpen(false); 
   };
 
   return (
@@ -89,7 +70,7 @@ function Navbar() {
             {user ? (
                 <>
                 
-                <span className="navbar-link">Welcome, <span className="username">{username}</span></span>
+                <span className="navbar-link">Welcome,  <span className="username">{username}</span></span>
                 
                     <div className="menu-container">
                       <div className={`${open ? 'open' : ''}`} onClick={() => setOpen(!open)}>
@@ -100,34 +81,39 @@ function Navbar() {
                       </div>
 
                       <div className={`dropdown ${open ? 'show' : ''}`}>
-                        
+
                         <Link
                           to="/postCar"
                           className={`nav-link`}
                           onClick={handleLinkClick}
-                        > <i className="bi bi-file-earmark-plus me-2"></i> <span className='dropdownSymbol'> Post Car </span>
+                        > 
+                        <i className="bi bi-file-earmark-plus me-2"></i> <span className='dropdownSymbol'> Post Car </span>
                         </Link>
+
                         <Link
                           to="/mycars"
                           className={`nav-link`}
                           onClick={handleLinkClick}
-                        > <i class="bi bi-car-front"></i> <span className='dropdownSymbol'> My Cars </span>
-                          
+                        > 
+                        <i class="bi bi-car-front"></i> <span className='dropdownSymbol'> My Cars </span>
                         </Link>
+
                         <Link
                           to="/mybids"
                           className={`nav-link`}
                           onClick={handleLinkClick}
-                        > <i class="bi bi-cart3"></i> <span className='dropdownSymbol'> My Bids </span>
-                          
+                        > 
+                        <i class="bi bi-cart3"></i> <span className='dropdownSymbol'> My Bids </span>
                         </Link>
+
                         <Link
                           to="/search"
                           className={`nav-link`}
                           onClick={handleLinkClick}
-                        > <i class="bi bi-search"></i> <span className='dropdownSymbol'> Search Car </span>
-                          
+                        > 
+                        <i class="bi bi-search"></i> <span className='dropdownSymbol'> Search Car </span>
                         </Link>
+
                       </div>
                     </div>
                 
@@ -141,10 +127,10 @@ function Navbar() {
                 </>
               ) : (
                 <>
-                  <Link to="/login" className={`nav-link ${isActive('/login') ? 'active' : ''}`} >
+                  <Link to="/login" className={`nav-link ${isActive('/login') ? "active" : ""}`} >
                     Login
                   </Link>
-                  <Link to="/register" className={`nav-link ${isActive('/login') ? 'active' : ''}'}`} >
+                  <Link to="/register" className={`nav-link ${isActive('/login') ? "active" : ""}'}`} >
                     Register
                   </Link>
                 </>

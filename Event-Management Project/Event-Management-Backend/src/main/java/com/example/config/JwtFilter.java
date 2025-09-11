@@ -8,12 +8,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
-import org.springframework.web.filter.OncePerRequestFilter;
-
-import com.example.service.AuthService;
-import com.example.service.CustomUserDetailsService;
-
-import io.micrometer.common.util.StringUtils;
 
 import java.io.IOException;
 import jakarta.servlet.Filter;
@@ -24,7 +18,6 @@ import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 @Component
 public class JwtFilter  implements Filter{

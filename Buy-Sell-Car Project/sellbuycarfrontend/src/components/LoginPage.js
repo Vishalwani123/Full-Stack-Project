@@ -15,7 +15,6 @@ const LoginPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            console.log("The FormData is --------"+formData);
             const data = await loginUser(formData);
             localStorage.setItem('token', data.jwt);
             localStorage.setItem('userId', data.userId);

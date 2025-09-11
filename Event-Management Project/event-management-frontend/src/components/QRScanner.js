@@ -5,7 +5,7 @@ function QRScanner() {
   const [result, setResult] = useState('');
 
   const handleScan = async (e) => {
-    const code = prompt("Simulate QR Code Input:"); // Simulate scan input
+    const code = prompt("Simulate QR Code Input:");
     if (code) {
       try {
         const response = await checkInWithQR(code);

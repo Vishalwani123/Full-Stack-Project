@@ -17,16 +17,14 @@ h2 {
   margin-bottom: 1rem;
 }
 
-/* Slider styles */
 .slick-slide {
-  margin: 0 10px; /* Space between slides */
+  margin: 0 10px;
 }
 
 .slick-prev, .slick-next {
-  z-index: 1; /* Ensure navigation buttons are above the slides */
+  z-index: 1;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
   .dashboard-container {
       margin: 1rem;
@@ -39,16 +37,16 @@ h2 {
   gap: 20px;
   padding: 20px;
   scroll-snap-type: x mandatory;
-  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  scrollbar-width: none;
   scroll-behavior: smooth;
 }
 
 .scroll-container::-webkit-scrollbar {
-  display: none; /* Hide scrollbar in Chrome, Safari */
+  display: none;
 }
 
 .event-card {
-  flex: 0 0 auto; /* Prevent shrinking */
+  flex: 0 0 auto;
   width: 300px;
   scroll-snap-align: start;
   border: 1px solid #ccc;

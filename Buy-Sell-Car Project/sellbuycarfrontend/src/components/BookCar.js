@@ -6,7 +6,6 @@ import { toast } from 'react-toastify';
 import '../style/BookCar.css'; // External CSS same as your SCSS
 
 function BookCar() {
-
   const { id } = useParams();
   const navigate = useNavigate();
   const [car, setCar] = useState(null);

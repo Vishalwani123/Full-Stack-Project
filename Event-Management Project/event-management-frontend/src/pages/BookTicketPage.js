@@ -51,11 +51,16 @@ function BookTicketPage() {
 
       toast.success(`${responseData.username} Booking is done for - ${responseData.eventTitle} `, {autoClose: 1000,}); 
 
+      console.log("Event Title - ", responseData.eventTitle);
       let qrCodeArray = responseData.qrCodes;
+
       if (typeof qrCodeArray === 'string') {
         qrCodeArray = qrCodeArray.split(',');
       }
-      navigate('/qrcode', { state: { qrCodeValues: qrCodeArray, eventTitles: responseData.eventTitle } });
+
+      navigate('/qrcode', { state: { qrCodeValues: qrCodeArray, eventTitles: responseData.eventTitle }});
+
+  
     } 
     catch (error) {
       toast.error(`Booking Fail`, {autoClose: 1000,});

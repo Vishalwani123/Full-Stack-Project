@@ -7,7 +7,7 @@ import '../Style/QRCodePage.css';
 
 const QRCodePage = () => {
   const location = useLocation();
-  const { qrCodeValues, eventTitles  } = location.state || {};
+  const { qrCodeValues, eventTitles } = location.state || {};
   console.log("Event Title in QRCode Page ");
   if (!qrCodeValues || qrCodeValues.length === 0) {
     toast.error("Book Ticket First!", { toastId: 'book-ticket-error', hideProgressBar: true, autoClose: 800 });
@@ -40,4 +40,3 @@ const QRCodePage = () => {
 };
 
 export default QRCodePage;
-

@@ -1,17 +1,17 @@
-.navbar {
+.customNavbar {
 background-color: #f8f9fa;
-padding: 0.90rem 2rem;
+padding: 0.4rem 2rem;
 border-bottom: 1px solid #ddd;
 background-color: rgb(150, 160, 237);
 }
 
-.navbar-container {
+.customNavbar-container {
 display: flex;
 justify-content: space-between;
 align-items: center;
 }
 
-.navbar-left {
+.customNavbar-left {
   font-size: 1.95rem;
   font-weight: bold;
   color: #2c3575;;
@@ -20,27 +20,28 @@ align-items: center;
 .navbar-left .brand {
 font-size: 1.5rem;
 font-weight: bold;
-color: #2c3575;;
+color: #2c3575;
 text-decoration: none;
 }
 
-.navbar-right {
+.customNavbar-right {
 display: flex;
 align-items: center;
 }
 
-.nav-links {
-display: flex;
-gap: 1rem;
+.customNav-links {
+  display: flex;
+  gap: 1rem;
 }
 
-.nav-link {
-color: #12324f;
-text-decoration: none;
-font-weight: 500;
+.customNav-link {
+  color: #12324f;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 0px;
 }
 
-.nav-link.active {
+.customNav-link.active {
 border-bottom: 2px solid #007bff;
 }
 
@@ -51,13 +52,76 @@ display: none;
 .big-bold-icon {
   font-size: 18px;
   font-weight: bold;
-  color: #000; /* optional */
+  color: #000;
 }
 
-.Symbol{
-  
+
+.dropdownSymbol{
+  color: rgb(171, 21, 21);
+}
+.customSymbolDash{
+  color: #2c3575;
+  font-size: 22px;
+}
+
+.symbol{
   font-size: 20px;
 }
-.SymbolDash{
-  font-size: 22px;
+.menu-container {
+  position: relative;
+  display: inline-block;
+  font-family: 'Segoe UI', sans-serif;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.bar {
+  height: 4px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 4px;
+  transition: all 0.4s ease;
+}
+.dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  min-width: 163px;
+  z-index: 999;
+}
+
+.dropdown a{
+  display: block;
+  padding: 11px 23px;
+  color: #333;
+  text-decoration: none;
+  transition: 0.2s ease;
+  font-size: 16px;
+}
+.dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.customDrop-link{
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.customDrop-link:hover {
+  background-color: #7c7ae4;
+}
+.customDrop-logout-link:hover {
+  background-color: #f00808;
 }

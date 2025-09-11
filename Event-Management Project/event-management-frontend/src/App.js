@@ -7,6 +7,7 @@ import EventDetailsPage from './pages/EventDetailsPage';
 import BookTicketPage from './pages/BookTicketPage';
 import AdminPanel from './pages/AdminPanel';
 import Navbar from './components/Navbar';
+import YourEvents from './pages/YourEvents';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -35,11 +36,13 @@ function App() {
         <Route path="/MakeEvent" element={<MakeEvent />} />
         <Route path="/UpdateEvent" element={<UpdateEvent />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/event/:id" element={<EventDetailsPage />} />
+        <Route path="/event/:id/:userId" element={<EventDetailsPage />} />
         <Route path="/book/:id" element={<BookTicketPage />} />
         <Route path="/qrcode" element={<QRCodePage  />} />
         <Route path="/qrscan" element={<QRScanner  />} />
         <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/yourEvents/:userId" element={<YourEvents />} 
+      />
       </Routes>
     </Router>
   );
