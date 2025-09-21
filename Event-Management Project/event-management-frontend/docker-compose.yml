@@ -1,0 +1,22 @@
+services:
+  frontend:
+    image: event-management-frontend
+    container_name: event-management-frontend-container
+    ports:
+      - "3000:80"   # access React app at http://localhost:3000
+    depends_on:
+      - backend
+    networks:
+      - event-management-backend_default
+
+  backend:
+    image: event-manage-app  # replace with your Spring Boot/Node API image
+    # container_name: api-backend
+    # ports:
+    #   - "8080:8080"
+    networks:
+      - event-management-backend_default
+
+networks:
+  event-management-backend_default:
+    driver: bridge

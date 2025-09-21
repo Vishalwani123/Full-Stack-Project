@@ -58,7 +58,7 @@
   padding: 10px 14px;
   border-radius: 6px;
   cursor: pointer;
-  margin-top: auto;
+  margin-top: 10px;
   transition: background-color 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.05em;
