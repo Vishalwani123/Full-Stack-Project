@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +21,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.dto.BookingDto;
-import com.example.model.Booking;
-import com.example.model.Event;
-import com.example.model.Ticket;
-import com.example.model.User;
+import com.example.entities.Booking;
+import com.example.entities.Event;
+import com.example.entities.Ticket;
+import com.example.entities.User;
 import com.example.repository.UserRepository;
 import com.example.service.BookingService;
 import com.example.service.EventService;
@@ -43,14 +44,12 @@ public class BookingController {
     private UserRepository userRepository;
 
     @PostMapping("/{id}")
-    public ResponseEntity<?> bookTickets(@AuthenticationPrincipal UserDetails userDetails,
+    public ResponseEntity<?> bookTickets(@AuthenticationPrincipal User user,
                                          @PathVariable Long id,
                                          @RequestBody Map<String, Integer> requestBody) {
-    	System.out.println(" Book Ticket Controller is Working fine ");
         try {
-        	
-            String username = userDetails.getUsername();
-            Optional<User> userOpt = userRepository.findByUsername(username);
+            String email = user.getEmail();
+            Optional<User> userOpt = userRepository.findByEmail(email);
             if (!userOpt.isPresent()) {
                 return ResponseEntity.status(401).body("User not found");
             }
@@ -67,41 +66,34 @@ public class BookingController {
             
             BookingDto bookingDto = bookingService.createBooking(userOpt.get(), eventOpt.get(), tickets);
             
-            System.out.println(" Booking Ticket is done ");
-            
             return ResponseEntity.status(HttpStatus.CREATED).body(bookingDto);
             
         } catch (Exception e) {
-        	
             return ResponseEntity.badRequest().body(e.getMessage());
             
         }
     }
     
     @GetMapping("/user/tickets")
-    public ResponseEntity<?> getUserTickets(@AuthenticationPrincipal UserDetails userDetails) {
+    public ResponseEntity<?> getUserTickets(@AuthenticationPrincipal User user) {
         try {
-        	
-            String username = userDetails.getUsername();
-            Optional<User> userOpt = userRepository.findByUsername(username);
+            String email = user.getEmail();
+            
+            Optional<User> userOpt = userRepository.findByEmail(email);
             
             if (!userOpt.isPresent()) {
                 return ResponseEntity.status(401).body("User not found");
             }
 
             List<BookingDto> bookingDto = bookingService.getBookingsByUser(userOpt.get());
-
-            return ResponseEntity.status(HttpStatus.FOUND).body(bookingDto);
+            
+            return ResponseEntity.ok(bookingDto);
             
         } 
         catch (Exception e) {
-        	
             return ResponseEntity.badRequest().body(e.getMessage());
             
         }
     }
-
-    
+  
 }
-
-

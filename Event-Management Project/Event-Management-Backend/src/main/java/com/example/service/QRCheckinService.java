@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.model.Ticket;
+import com.example.entities.Ticket;
 import com.example.repository.TicketRepository;
 
 @Service
@@ -13,7 +13,6 @@ public class QRCheckinService {
 	
 	@Autowired
     private TicketRepository ticketRepository;
-
 	
     public Ticket verifyAndCheckInTicket(String qrCode) throws Exception {
         Optional<Ticket> ticketOptional = ticketRepository.findByQrCode(qrCode);

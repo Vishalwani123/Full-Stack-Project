@@ -5,8 +5,9 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.example.model.Booking;
-import com.example.model.User;
+
+import com.example.entities.Booking;
+import com.example.entities.User;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long>{

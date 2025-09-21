@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.entities;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -35,14 +35,13 @@ public class Booking {
     @JoinColumn(name = "event_id", nullable = false)
     private Event event;
 
-    private int numberOfTickets ;
+    private int numberOfTickets;
 
     private LocalDateTime bookingTime;
     
     @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Ticket> tickets;
 
-    
     public BookingDto getBookingDto() {
 		
     	BookingDto bookingDto = new BookingDto();
@@ -50,12 +49,13 @@ public class Booking {
     	bookingDto.setId(id);
     	bookingDto.setUsername(user.getUsername());
     	bookingDto.setEventTitle(event.getTitle());
-    	bookingDto.setNumberOfTickets(numberOfTickets);
+    	bookingDto.setNumberOfTickets(numberOfTickets);   	
     	bookingDto.setBookingTime(bookingTime);
         List<String> qrCodes = tickets.stream().map(Ticket::getQrCode).collect(Collectors.toList());
         bookingDto.setQrCodes(qrCodes);
 		
 		return bookingDto;
+		
 	}
+    
 }
-

@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import com.example.model.Role;
+import com.example.entities.Role;
 
 import lombok.Getter;
 import lombok.Setter;

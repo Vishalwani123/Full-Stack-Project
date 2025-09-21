@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.model.Ticket;
+import com.example.entities.Ticket;
 import com.example.service.QRCheckinService;
 
 @RestController
@@ -24,10 +24,8 @@ public class QRCheckinController {
 
     @PostMapping
     public ResponseEntity<?> checkIn(@RequestParam("code") String qrCode) {
-    	System.out.println("You are in CheckIn Controller");
         try {
             Ticket ticket = qrCheckinService.verifyAndCheckInTicket(qrCode);
-            System.out.println("CheckIn Done");
             return ResponseEntity.ok("Check-in successful for ticket: " + ticket.getId());
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());

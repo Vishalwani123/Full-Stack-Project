@@ -13,6 +13,8 @@ import lombok.Setter;
 public class EventDto {
 	
 	private Long id;
+	
+	private Long userId;
 
     private String title;
     		
@@ -27,4 +29,5 @@ public class EventDto {
     private int capacity;
  
     private MultipartFile img;
+    
 }

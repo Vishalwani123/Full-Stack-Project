@@ -15,4 +15,5 @@ public class BookingDto {
     private int numberOfTickets;
     private LocalDateTime bookingTime;
     private List<String> qrCodes;
+    
 }

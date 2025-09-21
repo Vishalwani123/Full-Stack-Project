@@ -10,11 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dto.BookingDto;
-import com.example.model.Booking;
-import com.example.model.Event;
-import com.example.model.Ticket;
-import com.example.model.User;
+import com.example.entities.Booking;
+import com.example.entities.Event;
+import com.example.entities.Ticket;
+import com.example.entities.User;
 import com.example.repository.BookingRepository;
+import com.example.repository.EventRepository;
 import com.example.repository.TicketRepository;
 
 @Service
@@ -25,15 +26,20 @@ public class BookingService {
 
     @Autowired
     private TicketRepository ticketRepository;
+    
+    @Autowired
+    private EventService eventService;
 
     public BookingDto createBooking(User user, Event event, int numberOfTickets) throws Exception {
         int bookedTickets = bookingRepository.findByUserId(user.getId()).stream()
                 .mapToInt(Booking::getNumberOfTickets).sum();
-
-        if (bookedTickets + numberOfTickets > event.getCapacity()) {
+        
+        System.out.println("Booked Ticket - "+event.getBookedTicket());
+        System.out.println("Event Capacity Ticket - "+event.getCapacity());
+        
+        if (event.getBookedTicket() + numberOfTickets > event.getCapacity()) {
             throw new Exception("Not enough tickets available");
         }
-        
         
         Booking booking = new Booking();
         booking.setUser(user);
@@ -42,7 +48,11 @@ public class BookingService {
         booking.setBookingTime(LocalDateTime.now());
 
         booking = bookingRepository.save(booking);
-
+        
+        eventService.updateSeatOfEvent(event, numberOfTickets);
+        
+        System.out.println("Available Ticket - "+event.getAvailableTicket());
+        System.out.println("Booked Ticket - "+event.getBookedTicket());
         List<Ticket> tickets = new ArrayList<>();
         
         for (int i = 0; i < numberOfTickets; i++) {
@@ -72,5 +82,5 @@ public class BookingService {
 		               .map(Booking::getBookingDto) 
 		               .collect(Collectors.toList());
     }
-
+ 
 }

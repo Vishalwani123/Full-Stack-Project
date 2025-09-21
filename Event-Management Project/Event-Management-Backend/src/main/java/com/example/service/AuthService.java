@@ -12,16 +12,20 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.config.JwtUtil;
 import com.example.dto.AuthenticationRequest;
 import com.example.dto.AuthenticationResponse;
 import com.example.dto.SignUpRequest;
 import com.example.dto.UserDto;
-import com.example.model.Role;
-import com.example.model.User;
+import com.example.entities.Role;
+import com.example.entities.User;
+import com.example.exception.UnAuthorizedException;
 import com.example.repository.UserRepository;
+import com.example.security.AuthUtility;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class AuthService {
 	
 		@Autowired
@@ -31,70 +35,56 @@ public class AuthService {
 	    private PasswordEncoder passwordEncoder;
 		
 		@Autowired
-	    private AuthenticationManager authenticationManager;
+	    private AuthUtility jwtUtil;
 		
-		@Autowired
-	    private JwtUtil jwtUtil;
-		
-		@Autowired
-		private CustomUserDetailsService customUserDetailsService;
-		 
-	    // Sign-up Function 
 		public UserDto signup(SignUpRequest signupRequest) {
-			
 			User user = new User();
+			
 			user.setUsername(signupRequest.getUsername());
 			user.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
 			user.setEmail(signupRequest.getEmail());
 			user.setRole(Role.valueOf(signupRequest.getRole().toUpperCase()));
 
-			
 			return userRepository.save(user).getUserDTO();
 		}
 		
-		// Login  Function
 		public AuthenticationResponse login(AuthenticationRequest authenticationRequest) {
-			
-			try {
-				 authenticationManager.authenticate(
-						new UsernamePasswordAuthenticationToken(
-								authenticationRequest.getUsername(),
-								authenticationRequest.getPassword()));
-			}
-			catch (BadCredentialsException e) {
-				throw new BadCredentialsException("Incorrect username or password");
-			}
 
-			final UserDetails userDetails = customUserDetailsService.userDetailsService().loadUserByUsername(authenticationRequest.getUsername());
-			Optional<User> optionalUser = userRepository.findByUsername(authenticationRequest.getUsername());
-		
-			final String jwt = jwtUtil.generateToken(userDetails);
+			boolean res = this.validateCredentials(authenticationRequest.getEmail(), authenticationRequest.getPassword());
+			
+			if(!res) {
+				throw new UnAuthorizedException("Entered wrong credentials");
+			}
+			
+			Optional<User> user  = userRepository.findByEmail(authenticationRequest.getEmail());
+			
+			final String jwt = jwtUtil.generateToken(authenticationRequest.getEmail(), authenticationRequest.getPassword(), user.get().getRole().toString());
 			
 			AuthenticationResponse response = new AuthenticationResponse();
 			
-			if (optionalUser.isPresent()) {
-				response.setJwt(jwt);
-				response.setRole(optionalUser.get().getRole());
-				response.setUserId(optionalUser.get().getId());
-			}
+			response.setJwt(jwt);
+			response.setRole(user.get().getRole());
+			response.setUserName(user.get().getUsername());
+			response.setUserId(user.get().getId());
 			
 			return response;
-			
 		}
-		public Boolean hasUserWithUsername(String username) {
+		
+		public Boolean hasUserWithEmail(String email) {
 			
-			return userRepository.findByUsername(username).isPresent();
+			return userRepository.findByEmail(email).isPresent();
 		}
+		
+		public boolean validateCredentials(String email, String password){
+		
+			Optional<User> user  = userRepository.findByEmail(email);
+	        
+			boolean matches = passwordEncoder.matches(password, user.get().getPassword());
+			if (matches) {
+				return true;
+			} 
 			
-//		public UserDetailsService userDetailsService() {
-//			return new UserDetailsService() {
-//				
-//				@Override
-//				public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//					
-//					return userRepository.findByUsername(username)
-//							.orElseThrow(() -> new UsernameNotFoundException("User not found"));
-//				}
-//			};
-//		}
+			return false;
+		}
+		
 }

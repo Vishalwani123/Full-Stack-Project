@@ -1,6 +1,6 @@
 package com.example.dto;
 
-import com.example.model.Role;
+import com.example.entities.Role;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,4 +16,5 @@ public class SignUpRequest {
     private String email;
 
     private String role;
+    
 }
